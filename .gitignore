@@ -163,3 +163,18 @@ platform/out/
 results/xai/tenant/**/*.parquet.log.json
 !results/xai/tenant/**/*_12_*.parquet.log.json
 !results/xai/tenant/**/*_20_*.parquet.log.json
+
+# ============================================
+# TOOL CACHES AND COVERAGE
+# ============================================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Predictions and checkpoints in the other experiment roots (experiments_hi_medium/,
+# experiments_valrings/); the rules above only cover experiments/.
+experiments_*/**/predictions*.csv
+experiments_*/**/*.ckpt
