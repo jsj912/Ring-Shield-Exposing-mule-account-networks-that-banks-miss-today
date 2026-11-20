@@ -45,6 +45,11 @@ from sklearn.metrics import f1_score, precision_score, recall_score, average_pre
 
 optuna.logging.set_verbosity(optuna.logging.WARNING)
 
+# Run as `python baselines/gfp_xgboost_aml.py`, sys.path[0] is baselines/, so the repository root
+# has to be added for the `baselines.` import below (as baselines/gfp_xgboost_crossfit.py does).
+REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO_ROOT))
+
 # The feature set and the loader live in baselines/refit_data.py, which does NOT import optuna --
 # this module does, at ~2.6 s, and a caller that only wants the data should not pay for the tuner.
 # Re-exported here so `from baselines.gfp_xgboost_aml import load_split_for_refit` keeps working
